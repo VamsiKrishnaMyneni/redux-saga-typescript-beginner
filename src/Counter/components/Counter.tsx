@@ -9,7 +9,6 @@ interface CounterProps {
 function Counter(props: CounterProps) {
     const { count } = props
     const dispatch = useDispatch();
-    console.log(counterActionTypes.increment({ count: count + 1 }))
 
     return (
         <>
