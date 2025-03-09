@@ -1,4 +1,3 @@
-import { combineReducers } from "redux"
 import { DECREMENT_COUNTER, INCREMENT_COUNTER } from "../actions/counter.action.types"
 
 const intialState = {

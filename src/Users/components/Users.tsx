@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { usersActionTypes } from '../actions/users.action';
 
 function Users() {
     const dispatch = useDispatch();
     const { users }: { users: { data: any, error: string, loading: boolean } } = useSelector((state: any) => state.users);
     useEffect(() => {
-        dispatch({ type: "USER_FETCH_REQUESTED", payload: { userId: 1 } });
+        dispatch(usersActionTypes.request({ userId: 1 }));
     }, []);
 
     return (

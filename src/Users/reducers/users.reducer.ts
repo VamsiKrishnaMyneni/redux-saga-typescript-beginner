@@ -1,4 +1,5 @@
-
+import { handleActions } from 'redux-actions';
+import { USER_FETCH_FAILED, USER_FETCH_REQUESTED, USER_FETCH_SUCCEEDED } from '../actions/users.action.types';
 
 const initialState = {
     users: {
@@ -44,15 +45,12 @@ const updateUsersError = (state = initialState, action: any) => {
 }
 
 
-export default function usersReducer(state = initialState, action: any) {
-    switch (action.type) {
-        case 'USER_FETCH_SUCCEEDED':
-            return updateUsers(state, action)
-        case 'USER_FETCH_REQUESTED':
-            return updateUsersLoading(state, action)
-        case 'USER_FETCH_FAILED':
-            return updateUsersError(state, action)
-        default:
-            return state
-    }
-}
+const usersReducer = handleActions({
+    [USER_FETCH_SUCCEEDED]: (...args) => updateUsers(...args),
+    [USER_FETCH_REQUESTED]: (...args) => updateUsersLoading(...args),
+    [USER_FETCH_FAILED]: (...args) => updateUsersError(...args),
+}, initialState);
+
+
+
+export default usersReducer;
