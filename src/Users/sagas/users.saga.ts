@@ -3,7 +3,7 @@ import { all, fork, call, put, takeLatest } from 'redux-saga/effects'
 
 // worker Saga: will be fired on USER_FETCH_REQUESTED actions
 function* fetchUser(action: any): Generator<any, void, any> {
-    const url = `https://jsonplaceholder.typicode.com/users/${action.payload.userId}`
+    const url = `https://jsonplaceholder.typicode.com/users/${action.userId}`
     try {
         const response = yield call(fetch, url)
         const user = yield response.json()
