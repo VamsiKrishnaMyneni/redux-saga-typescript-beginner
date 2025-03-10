@@ -7,7 +7,7 @@ const intialState = {
 const incrementCouter = (state = intialState, action: any) => {
     return {
         ...state,
-        count: state.count
+        count: action.count
     }
 }
 
